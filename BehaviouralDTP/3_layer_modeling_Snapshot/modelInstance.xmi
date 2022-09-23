@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flatUML:SnapshotModel
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:flatUML="http://jku.at/flatUML">
+  <snapshot
+      next="//@snapshot.1">
+    <s2/>
+    <s1/>
+    <t1/>
+    <robot speed="//@snapshot.0/@speed.0"/>
+    <speed value="5"/>
+    <sm s1="//@snapshot.0/@s1"
+        s2="//@snapshot.0/@s2"
+        t1="//@snapshot.0/@t1"/>
+  </snapshot>
+  <snapshot
+      previous="//@snapshot.0">
+    <s2/>
+    <s1/>
+    <t1/>
+    <robot/>
+    <speed value="5"/>
+    <sm s1="//@snapshot.0/@s1"
+        s2="//@snapshot.0/@s2"
+        t1="//@snapshot.0/@t1"/>
+  </snapshot>
+</flatUML:SnapshotModel>

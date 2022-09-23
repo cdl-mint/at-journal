@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tsUML:UMLModel
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:tsUML="tsUML"
+    xsi:schemaLocation="tsUML tsUML.ecore">
+  <robot speedTELEMETRY="5"/>
+  <sm Class="//@robot.0">
+    <state isActiveTELEMETRY="true"
+        isStart="true"/>
+    <state/>
+    <transition
+        successor="//@sm.0/@state.1"
+        predecessor="//@sm.0/@state.0"/>
+  </sm>
+</tsUML:UMLModel>
