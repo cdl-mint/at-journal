@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simpleUML:UMLModel
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:simpleUML="http://jku.at/simpleUML"
+    xsi:schemaLocation="http://jku.at/simpleUML SimpleUML.ecore">
+  <class name="Robot">
+    <attribute
+        name="speed"/>
+  </class>
+  <class name="Conveyer">
+    <attribute/>
+  </class>
+  <statemachine
+      class="//@class.0">
+    <state/>
+    <transition/>
+  </statemachine>
+</simpleUML:UMLModel>
