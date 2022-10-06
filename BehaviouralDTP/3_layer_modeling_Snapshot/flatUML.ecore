@@ -1,65 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="flatUML" nsURI="http://jku.at/flatUML" nsPrefix="flatUML">
-  <eClassifiers xsi:type="ecore:EClass" name="StateMachine">
+  <eClassifiers xsi:type="ecore:EClass" name="StateMachine" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="state" upperBound="-1"
         eType="#//State" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="transition" upperBound="-1"
         eType="#//Transition" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="class" eType="#//Class"
+        eOpposite="#//Class/statemachine"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="State"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Transition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="State" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Transition" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="S1">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//State"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isActive" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="S2">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//State"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//State"
+        unsettable="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isActive" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Snapshot">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="s2" lowerBound="1" eType="#//S2"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="s1" lowerBound="1" eType="#//S1"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="t1" lowerBound="1" eType="#//T1"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="next" eType="#//Snapshot"
         eOpposite="#//Snapshot/previous"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="previous" eType="#//Snapshot"
         eOpposite="#//Snapshot/next"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sm" upperBound="-1" eType="#//RobotSM"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="robot" upperBound="-1"
         eType="#//Robot" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="speed" upperBound="-1"
-        eType="#//Speed" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sm" upperBound="-1" eType="#//SM"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timestamp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="T1">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Transition"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="src" eType="#//S1"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="trg" eType="#//S2"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Robot">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="speed" eType="#//Speed"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Class"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sm" eType="#//SM"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="src" lowerBound="1" eType="#//S1"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trg" lowerBound="1" eType="#//S2"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Speed">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Attribute"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Class" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="statemachine" eType="#//StateMachine"
+        eOpposite="#//StateMachine/class"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Class"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Attribute"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SM">
+  <eClassifiers xsi:type="ecore:EClass" name="RobotSM">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//StateMachine"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="s1" eType="#//S1"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="s2" eType="#//S2"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="t1" eType="#//T1"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="s1" lowerBound="1" eType="#//S1"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="s2" lowerBound="1" eType="#//S2"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t1" lowerBound="1" eType="#//T1"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SnapshotModel">
     <eStructuralFeatures xsi:type="ecore:EReference" name="snapshot" upperBound="-1"
         eType="#//Snapshot" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Robot" eSuperTypes="#//Class">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="speed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sm" eType="#//RobotSM"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

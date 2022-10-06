@@ -2,16 +2,26 @@
 <tsUML:UMLModel
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:tsUML="tsUML"
-    xsi:schemaLocation="tsUML tsUML.ecore">
-  <robot speedTELEMETRY="5"/>
-  <sm Class="//@robot.0">
+    xmlns:tsUML="tsUML">
+  <robot speedTELEMETRY="5"
+      name="1"/>
+  <sm name="robot1">
     <state isActiveTELEMETRY="true"
-        isStart="true"/>
-    <state/>
+        isStart="true"
+        name="S1"/>
+    <state name="S2"/>
     <transition
         successor="//@sm.0/@state.1"
-        predecessor="//@sm.0/@state.0"/>
+        predecessor="//@sm.0/@state.0"
+        name="T1"/>
   </sm>
+  <robotstatemachine
+      class="//@robot.0"
+      name="robot1">
+    <s1 name="s1"/>
+    <s2 name="s2"/>
+    <t1 name="t1"
+        src="//@robotstatemachine.0/@s1"
+        trg="//@robotstatemachine.0/@s2"/>
+  </robotstatemachine>
 </tsUML:UMLModel>
