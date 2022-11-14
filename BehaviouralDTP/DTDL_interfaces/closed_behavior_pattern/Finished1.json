@@ -1,0 +1,52 @@
+{
+	"@type": "Interface",
+	"displayName": "Finished1",
+	"@id": "dtmi:com:cdl:Finished1;2",
+	"contents":[
+			{
+			"@type": [
+				"Telemetry"
+			],
+			"schema": "boolean",
+			"displayName": "fires",
+			"name": "fires"
+			},
+			{
+			"@type": "Relationship",
+			"displayName": "type",
+			"@id": "dtmi:com:cdl:printRelType;2",
+			"target": "dtmi:com:cdl:Transition;2",
+			"maxMultiplicity": 1,
+			"minMultiplicity": 0,
+			"writable": false,
+			"properties": [
+			],
+			"name": "type"
+			},
+			{
+			"@type": "Relationship",
+			"displayName": "src",
+			"@id": "dtmi:com:cdl:operationalRelSrc;2",
+			"target": "dtmi:com:cdl:CancelPrinting;2",
+			"maxMultiplicity": 1,
+			"minMultiplicity": 0,
+			"writable": false,
+			"properties": [
+			],
+			"name": "src"
+			},
+			{
+			"@type": "Relationship",
+			"displayName": "trg",
+			"@id": "dtmi:com:cdl:printingRelTrg;2",
+			"target": "dtmi:com:cdl:StateStandBy;2",
+			"maxMultiplicity": 1,
+			"minMultiplicity": 0,
+			"writable": false,
+			"properties": [
+			],
+			"name": "trg"
+			}
+	],
+	"@context": "dtmi:dtdl:context;2"
+}

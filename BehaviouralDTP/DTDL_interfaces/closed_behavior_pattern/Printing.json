@@ -1,0 +1,37 @@
+{
+	"@type": "Interface",
+	"displayName": "Printing",
+	"@id": "dtmi:com:cdl:Printing;2",
+	"contents":[
+			{
+			"@type": "Relationship",
+			"displayName": "type",
+			"@id": "dtmi:com:cdl:printingRelType;2",
+			"target": "dtmi:com:cdl:State;2",
+			"maxMultiplicity": 1,
+			"minMultiplicity": 0,
+			"writable": false,
+			"properties": [
+			],
+			"name": "type"
+			},
+			{
+			"@type": [
+				"Telemetry"
+			],
+			"schema": "boolean",
+			"displayName": "isActive",
+			"name": "isActive"
+			},
+			{
+			"@type": [
+				"Property"
+			],
+			"schema": "boolean",
+			"displayName": "isStart",
+			"unit": "NONE",
+			"name": "isStart"
+			}
+	],
+	"@context": "dtmi:dtdl:context;2"
+}

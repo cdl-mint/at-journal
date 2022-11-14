@@ -1,0 +1,94 @@
+{
+	"@type": "Interface",
+	"displayName": "D3Printer",
+	"@id": "dtmi:com:cdl:D3Printer;2",
+	"contents":[
+			{
+			"@type": [
+				"Telemetry",
+				"Temperature"
+			],
+			"schema": "float",
+			"displayName": "temperature",
+			"unit": "degreeCelsius",
+			"name": "temperature"
+			},
+			{
+			"@type": [
+				"Telemetry"
+			],
+			"schema": "float",
+			"displayName": "x",
+			"name": "x"
+			},
+			{
+			"@type": [
+				"Telemetry"
+			],
+			"schema": "float",
+			"displayName": "y",
+			"name": "y"
+			},
+			{
+			"@type": [
+				"Telemetry"
+			],
+			"schema": "float",
+			"displayName": "z",
+			"name": "z"
+			},
+			{
+			"@type": [
+				"Command"
+			],
+			"displayName": "connect",
+			"name": "connect"
+			},
+			{
+			"@type": [
+				"Command"
+			],
+			"displayName": "sendCADFile",
+			"request": {
+				"displayName": "Request: file",
+				"name": "file",
+				"schema": "string"
+			},
+			"response": {
+				"displayName": "Request: file",
+				"name": "file",
+				"schema": "string"
+			},
+			"name": "sendCADFile"
+			},
+			{
+			"@type": [
+				"Command"
+			],
+			"displayName": "print",
+			"name": "print"
+			},
+			{
+			"@type": [
+				"Command"
+			],
+			"displayName": "pause",
+			"name": "pause"
+			},
+			{
+			"@type": [
+				"Command"
+			],
+			"displayName": "stop",
+			"name": "stop"
+			},
+			{
+			"@type": [
+				"Command"
+			],
+			"displayName": "reset",
+			"name": "reset"
+			}
+	],
+	"@context": "dtmi:dtdl:context;2"
+}

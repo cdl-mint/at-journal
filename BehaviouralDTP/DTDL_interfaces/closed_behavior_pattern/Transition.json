@@ -1,0 +1,16 @@
+{
+	"@type": "Interface",
+	"displayName": "Transition",
+	"@id": "dtmi:com:cdl:Transition;2",
+	"contents":[
+			{
+			"@type": [
+				"Telemetry"
+			],
+			"schema": "boolean",
+			"displayName": "fires",
+			"name": "fires"
+			}
+	],
+	"@context": "dtmi:dtdl:context;2"
+}
