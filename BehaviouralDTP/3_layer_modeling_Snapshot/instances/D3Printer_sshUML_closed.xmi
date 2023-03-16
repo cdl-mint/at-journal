@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<D3Printer_sshUML_closed.ecore:UMLModel
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:D3Printer_sshUML_closed.ecore="D3Printer_sshUML_closed.ecore"
+    xsi:schemaLocation="D3Printer_sshUML_closed.ecore /BehaviouralDTP/3_layer_modeling_Snapshot/D3Printer_sshUML_closed.ecore">
+  <classes xsi:type="D3Printer_sshUML_closed.ecore:D3Printer"
+      name="3DPrinter"
+      printerSM="//@statemachines.0"/>
+  <statemachines
+      xsi:type="D3Printer_sshUML_closed.ecore:PrinterStateMachine"
+      name="psm1">
+    <s2/>
+    <s1/>
+    <t1 trg="//@statemachines.0/@s2"
+        src="//@statemachines.0/@s1"/>
+    <s3/>
+    <s4/>
+    <s5/>
+    <s6/>
+    <t2 src="//@statemachines.0/@s2"
+        trg="//@statemachines.0/@s3"/>
+    <t3 src="//@statemachines.0/@s3"
+        trg="//@statemachines.0/@s4"/>
+    <t4 src="//@statemachines.0/@s4"
+        trg="//@statemachines.0/@s5"/>
+    <t5 src="//@statemachines.0/@s5"
+        trg="//@statemachines.0/@s4"/>
+    <t6 src="//@statemachines.0/@s4"
+        trg="//@statemachines.0/@s6"/>
+    <t7 src="//@statemachines.0/@s6"
+        trg="//@statemachines.0/@s1"/>
+    <t8 src="//@statemachines.0/@s4"
+        trg="//@statemachines.0/@s1"/>
+    <s7/>
+    <t9 trg="//@statemachines.0/@s7"
+        src="//@statemachines.0/@s1"/>
+    <t10 trg="//@statemachines.0/@s7"
+        src="//@statemachines.0/@s2"/>
+    <t11 trg="//@statemachines.0/@s7"
+        src="//@statemachines.0/@s3"/>
+    <t12 trg="//@statemachines.0/@s7"
+        src="//@statemachines.0/@s4"/>
+    <t13 trg="//@statemachines.0/@s7"
+        src="//@statemachines.0/@s5"/>
+    <t14 trg="//@statemachines.0/@s7"
+        src="//@statemachines.0/@s6"/>
+    <t15 trg="//@statemachines.0/@s1"
+        src="//@statemachines.0/@s7"/>
+  </statemachines>
+  <SnapshotModels>
+    <snapshots
+        timestamp="1678667302"
+        d3printer="//@classes.0"
+        printerstatemachine="//@statemachines.0"/>
+  </SnapshotModels>
+</D3Printer_sshUML_closed.ecore:UMLModel>

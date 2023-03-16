@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tsUML_open:UMLModel
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:tsUML_open="tsUML_open"
+    xsi:schemaLocation="tsUML_open /BehaviouralDTP/3_layer_modeling_TS/airQuality_tsUML_open.ecore">
+  <statemachines
+      name="aqc1StateMachine">
+    <states
+        isStart="true"
+        name="StandBy"/>
+    <states
+        name="initiateVentilationUnit"/>
+    <states
+        name="Active"/>
+    <states
+        name="Shutdown"/>
+    <transitions
+        successor="//@statemachines.0/@states.1"
+        predecessor="//@statemachines.0/@states.0"
+        name="tooLowTemperature"/>
+    <transitions
+        successor="//@statemachines.0/@states.2"
+        predecessor="//@statemachines.0/@states.1"
+        name="initiated"/>
+    <transitions
+        successor="//@statemachines.0/@states.0"
+        predecessor="//@statemachines.0/@states.2"
+        name="atTargetTemperature"/>
+    <transitions
+        successor="//@statemachines.0/@states.3"
+        predecessor="//@statemachines.0/@states.0"
+        name="shutdown1"/>
+    <transitions
+        successor="//@statemachines.0/@states.3"
+        predecessor="//@statemachines.0/@states.1"
+        name="shutdown2"/>
+    <transitions
+        successor="//@statemachines.0/@states.3"
+        predecessor="//@statemachines.0/@states.2"
+        name="shutdown3"/>
+  </statemachines>
+  <classes xsi:type="tsUML_open:Room"
+      name="r1">
+    <airqualitycontroller
+        statemachines="//@statemachines.0"
+        name="aqc1">
+      <airqualitysensor
+          name="s1"/>
+    </airqualitycontroller>
+  </classes>
+</tsUML_open:UMLModel>

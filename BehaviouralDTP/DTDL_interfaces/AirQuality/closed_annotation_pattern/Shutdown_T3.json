@@ -1,0 +1,52 @@
+{
+	"@type": "Interface",
+	"displayName": "Shutdown_T3",
+	"@id": "dtmi:com:cdl:ShutdownT3;2",
+	"contents":[
+			{
+			"@type": [
+				"Telemetry"
+			],
+			"schema": "boolean",
+			"displayName": "fires",
+			"name": "fires"
+			},
+			{
+			"@type": "Relationship",
+			"displayName": "type",
+			"@id": "dtmi:com:cdl:shutdownT3RelType;2",
+			"target": "dtmi:com:cdl:Transition;2",
+			"maxMultiplicity": 1,
+			"minMultiplicity": 0,
+			"writable": false,
+			"properties": [
+			],
+			"name": "type"
+			},
+			{
+			"@type": "Relationship",
+			"displayName": "src",
+			"@id": "dtmi:com:cdl:shutdownT3RelSrc;2",
+			"target": "dtmi:com:cdl:Active;2",
+			"maxMultiplicity": 1,
+			"minMultiplicity": 0,
+			"writable": false,
+			"properties": [
+			],
+			"name": "src"
+			},
+			{
+			"@type": "Relationship",
+			"displayName": "trg",
+			"@id": "dtmi:com:cdl:shutdownT3RelTrg;2",
+			"target": "dtmi:com:cdl:ShutdownT3;2",
+			"maxMultiplicity": 1,
+			"minMultiplicity": 0,
+			"writable": false,
+			"properties": [
+			],
+			"name": "trg"
+			}
+	],
+	"@context": "dtmi:dtdl:context;2"
+}

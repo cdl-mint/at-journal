@@ -1,0 +1,22 @@
+{
+	"@type": "Interface",
+	"displayName": "AirQualityController",
+	"@id": "dtmi:com:cdl:AirQualityController;2",
+	"contents":[
+			{
+			"@type": [
+				"Command"
+			],
+			"displayName": "enableVentilation",
+			"name": "enableVentilation"
+			},
+			{
+			"@type": [
+				"Command"
+			],
+			"displayName": "disableVentilation",
+			"name": "disableVentilation"
+			}
+	],
+	"@context": "dtmi:dtdl:context;2"
+}

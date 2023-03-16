@@ -1,0 +1,6 @@
+{
+	"@type": "Interface",
+	"displayName": "Room",
+	"@id": "dtmi:com:cdl:Room;2",
+	"@context": "dtmi:dtdl:context;2"
+}

@@ -1,0 +1,104 @@
+{
+	"@type": "Interface",
+	"displayName": "AirQualityControllerStateMachine",
+	"@id": "dtmi:com:cdl:PrinterStateMachine;2",
+	"contents":[
+			{
+			"@type": "Relationship",
+			"displayName": "type",
+			"@id": "dtmi:com:cdl:printerStateMachineRelType;2",
+			"target": "dtmi:com:cdl:AirQualitySensor;2",
+			"maxMultiplicity": 1,
+			"minMultiplicity": 0,
+			"writable": false,
+			"properties": [
+			],
+			"name": "type"
+			},
+			{
+			"@type": "Relationship",
+			"displayName": "standBy",
+			"@id": "dtmi:com:cdl:printerStateMachineRelStandBy;2",
+			"target": "dtmi:com:cdl:Transition;2",
+			"maxMultiplicity": 1,
+			"minMultiplicity": 0,
+			"writable": false,
+			"properties": [
+			],
+			"name": "standBy"
+			},
+			{
+			"@type": "Relationship",
+			"displayName": "connected",
+			"@id": "dtmi:com:cdl:printerStateMachineRelConnected;2",
+			"target": "dtmi:com:cdl:Connect;2",
+			"maxMultiplicity": 1,
+			"minMultiplicity": 0,
+			"writable": false,
+			"properties": [
+			],
+			"name": "connected"
+			},
+			{
+			"@type": "Relationship",
+			"displayName": "operational",
+			"@id": "dtmi:com:cdl:printerStateMachineRelOperational;2",
+			"target": "dtmi:com:cdl:initiated;2",
+			"maxMultiplicity": 1,
+			"minMultiplicity": 0,
+			"writable": false,
+			"properties": [
+			],
+			"name": "operational"
+			},
+			{
+			"@type": "Relationship",
+			"displayName": "connect",
+			"@id": "dtmi:com:cdl:printerStateMachineRelConnect;2",
+			"target": "dtmi:com:cdl:StateStandBy;2",
+			"maxMultiplicity": 1,
+			"minMultiplicity": 0,
+			"writable": false,
+			"properties": [
+			],
+			"name": "connect"
+			},
+			{
+			"@type": "Relationship",
+			"displayName": "sendCADFile",
+			"@id": "dtmi:com:cdl:printerStateMachineRelSendCADFile;2",
+			"target": "dtmi:com:cdl:InitiateVentilationUnit;2",
+			"maxMultiplicity": 1,
+			"minMultiplicity": 0,
+			"writable": false,
+			"properties": [
+			],
+			"name": "sendCADFile"
+			},
+			{
+			"@type": "Relationship",
+			"displayName": "print",
+			"@id": "dtmi:com:cdl:printerStateMachineRelPrint;2",
+			"target": "dtmi:com:cdl:Active;2",
+			"maxMultiplicity": 1,
+			"minMultiplicity": 0,
+			"writable": false,
+			"properties": [
+			],
+			"name": "print"
+			},
+			{
+			"@type": "Relationship",
+			"displayName": "printing",
+			"@id": "dtmi:com:cdl:printerStateMachineRelPrinting;2",
+			"target": "dtmi:com:cdl:AtTargetAirQuality;2",
+			"maxMultiplicity": 1,
+			"minMultiplicity": 0,
+			"writable": false,
+			"properties": [
+			],
+			"name": "printing"
+			}
+	],
+	"@context": "dtmi:dtdl:context;2"
+}

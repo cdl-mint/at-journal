@@ -1,0 +1,32 @@
+{
+	"@type": "Interface",
+	"displayName": "Snapshot",
+	"@id": "dtmi:com:cdl:Snapshot;2",
+	"contents":[
+			{
+			"@type": "Relationship",
+			"displayName": "printer",
+			"@id": "dtmi:com:cdl:SnapPrinter;2",
+			"target": "dtmi:com:cdl:D3Printer;2",
+			"maxMultiplicity": 10,
+			"minMultiplicity": 0,
+			"writable": false,
+			"properties": [
+			],
+			"name": "printer"
+			},
+			{
+			"@type": "Relationship",
+			"displayName": "printerStateMachine",
+			"@id": "dtmi:com:cdl:snapPrinterStateMachine;2",
+			"target": "dtmi:com:cdl:PrinterStateMachine;2",
+			"maxMultiplicity": 10,
+			"minMultiplicity": 0,
+			"writable": false,
+			"properties": [
+			],
+			"name": "printerStateMachine"
+			}
+	],
+	"@context": "dtmi:dtdl:context;2"
+}

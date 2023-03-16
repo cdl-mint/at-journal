@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<airQuality_sshUML_open:UMLModel
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:airQuality_sshUML_open="airQuality_sshUML_open"
+    xsi:schemaLocation="airQuality_sshUML_open ../airQuality_sshUML_open.ecore">
+  <statemachines
+      name="aqc1StateMachine">
+    <states
+        isStart="true"
+        name="StandBy"/>
+    <states
+        name="InitiateVentilation"/>
+    <states
+        name="Active"/>
+    <states
+        name="Shutdown"/>
+    <transitions
+        successor="//@statemachines.0/@states.1"
+        predecessor="//@statemachines.0/@states.0"
+        name="tooLowTemperature"/>
+    <transitions
+        successor="//@statemachines.0/@states.2"
+        predecessor="//@statemachines.0/@states.1"
+        name="initiated"/>
+    <transitions
+        successor="//@statemachines.0/@states.3"
+        predecessor="//@statemachines.0/@states.2"
+        name="shutdownActive"/>
+    <transitions
+        successor="//@statemachines.0/@states.3"
+        predecessor="//@statemachines.0/@states.0"
+        name="shutdownStandBy"/>
+    <transitions
+        successor="//@statemachines.0/@states.3"
+        predecessor="//@statemachines.0/@states.1"
+        name="shutdownInitiateVentilation"/>
+  </statemachines>
+  <classes xsi:type="airQuality_sshUML_open:Room"
+      name="r1">
+    <airqualitycontroller
+        statemachines="//@statemachines.0"
+        name="aqc1">
+      <airqualitysensor
+          name="s1"/>
+    </airqualitycontroller>
+  </classes>
+  <snapshotmodel>
+    <snapshots
+        timestamp="17000000"
+        rooms="//@classes.0"
+        airqualitycontrollers="//@classes.0/@airqualitycontroller.0"
+        airqualitysensors="//@classes.0/@airqualitycontroller.0/@airqualitysensor.0"
+        statemachines="//@statemachines.0"/>
+  </snapshotmodel>
+</airQuality_sshUML_open:UMLModel>

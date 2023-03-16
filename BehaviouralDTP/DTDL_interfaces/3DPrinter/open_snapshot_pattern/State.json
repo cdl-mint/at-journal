@@ -1,0 +1,24 @@
+{
+	"@type": "Interface",
+	"displayName": "State",
+	"@id": "dtmi:com:cdl:State;2",
+	"contents":[
+			{
+			"@type": [
+				"Telemetry"
+			],
+			"schema": "boolean",
+			"displayName": "isActive",
+			"name": "isActive"
+			},
+			{
+			"@type": [
+				"Property"
+			],
+			"schema": "boolean",
+			"displayName": "isStart",
+			"name": "isStart"
+			}
+	],
+	"@context": "dtmi:dtdl:context;2"
+}

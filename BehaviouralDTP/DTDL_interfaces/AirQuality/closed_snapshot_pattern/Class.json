@@ -1,0 +1,6 @@
+{
+	"@type": "Interface",
+	"displayName": "Class",
+	"@id": "dtmi:com:cdl:Class;2",
+	"@context": "dtmi:dtdl:context;2"
+}

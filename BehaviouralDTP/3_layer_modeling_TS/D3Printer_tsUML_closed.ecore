@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="D3Printer_tsUML_closed.ecore" nsURI="D3Printer_tsUML_closed.ecore"
+    nsPrefix="D3Printer_tsUML_closed.ecore">
+  <eClassifiers xsi:type="ecore:EClass" name="State" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Transition" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="successor" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//State"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="predecessor" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//State"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Class" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="D3Printer" eSuperTypes="/BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Class">
+    <eOperations name="reset"/>
+    <eOperations name="connect"/>
+    <eOperations name="sendCADFile"/>
+    <eOperations name="print"/>
+    <eOperations name="pause"/>
+    <eOperations name="continue"/>
+    <eOperations name="stop"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tempTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="xTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="yTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="zTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="printerSM" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//PrinterStateMachine"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StateMachine" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="states" upperBound="-1"
+        eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//State"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transitions" upperBound="-1"
+        eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Transition"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UMLModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="classes" upperBound="-1"
+        eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Class"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="statemachines" upperBound="-1"
+        eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//StateMachine"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PrinterStateMachine" eSuperTypes="/BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//StateMachine">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="s2" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Connected"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="s1" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//StandBy"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t1" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//connect"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="s3" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Operational"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="s4" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Printing"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="s5" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//PausePrinting"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="s6" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//CancelPrinting"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t2" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//sendCADFile"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t3" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//print"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t4" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//pause"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t5" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//continue"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t6" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//stop"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t7" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//finished2"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t8" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//finished1"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="s7" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Error"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t9" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//error1"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t10" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//error2"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t11" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//error3"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t12" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//error4"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t13" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//error5"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t14" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//error6"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t15" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//reset"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Connected">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isActiveTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="False"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        changeable="false" defaultValueLiteral="false" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//State"
+        changeable="false" unsettable="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StandBy">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isActiveTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="False"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        changeable="false" defaultValueLiteral="true" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//State"
+        changeable="false" unsettable="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="connect">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trg" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Connected"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="src" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//StandBy"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Transition"
+        changeable="false" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="firesTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Operational">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        changeable="false" defaultValueLiteral="false" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isActiveTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="False"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//State"
+        changeable="false" unsettable="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="sendCADFile">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="src" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Connected"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trg" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Operational"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Transition"
+        changeable="false" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="firesTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="print">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="src" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Operational"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trg" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Printing"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Transition"
+        changeable="false" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="firesTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="finished2">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="src" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//CancelPrinting"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trg" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//StandBy"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Transition"
+        changeable="false" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="firesTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="pause">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="src" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Printing"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trg" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//PausePrinting"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Transition"
+        changeable="false" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="firesTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="stop">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="src" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Printing"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trg" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//CancelPrinting"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Transition"
+        changeable="false" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="firesTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="continue">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="src" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//PausePrinting"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trg" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Printing"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Transition"
+        changeable="false" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="firesTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="finished1">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="src" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Printing"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trg" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//StandBy"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Transition"
+        changeable="false" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="firesTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Printing">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        changeable="false" defaultValueLiteral="false" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isActiveTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="False"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//State"
+        changeable="false" unsettable="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PausePrinting">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isActiveTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="False"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        changeable="false" defaultValueLiteral="false" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//State"
+        changeable="false" unsettable="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CancelPrinting">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isActiveTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="False"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        changeable="false" defaultValueLiteral="false" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//State"
+        changeable="false" unsettable="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="error1">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trg" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Error"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="src" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//StandBy"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Transition"
+        changeable="false" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="firesTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Error">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isActiveTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="False"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        changeable="false" defaultValueLiteral="false" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//State"
+        changeable="false" unsettable="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="error2">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trg" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Error"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="src" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Connected"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Transition"
+        changeable="false" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="firesTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="error3">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trg" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Error"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="src" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Operational"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Transition"
+        changeable="false" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="firesTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="error4">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trg" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Error"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="src" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Printing"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Transition"
+        changeable="false" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="firesTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="error5">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trg" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Error"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="src" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//PausePrinting"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Transition"
+        changeable="false" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="firesTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="error6">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trg" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Error"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="src" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//CancelPrinting"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Transition"
+        changeable="false" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="firesTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="reset">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trg" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//StandBy"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="src" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Error"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="ecore:EClass /BehaviouralDTP/3_layer_modeling_TS/D3Printer_tsUML_closed.ecore#//Transition"
+        changeable="false" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="firesTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+  </eClassifiers>
+</ecore:EPackage>

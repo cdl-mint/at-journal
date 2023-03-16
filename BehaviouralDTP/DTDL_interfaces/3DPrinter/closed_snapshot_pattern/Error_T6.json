@@ -1,0 +1,52 @@
+{
+	"@type": "Interface",
+	"displayName": "Error_T6",
+	"@id": "dtmi:com:cdl:ErrorT6;2",
+	"contents":[
+			{
+			"@type": [
+				"Telemetry"
+			],
+			"schema": "boolean",
+			"displayName": "fires",
+			"name": "fires"
+			},
+			{
+			"@type": "Relationship",
+			"displayName": "type",
+			"@id": "dtmi:com:cdl:errorT6RelType;2",
+			"target": "dtmi:com:cdl:Transition;2",
+			"maxMultiplicity": 1,
+			"minMultiplicity": 0,
+			"writable": false,
+			"properties": [
+			],
+			"name": "type"
+			},
+			{
+			"@type": "Relationship",
+			"displayName": "src",
+			"@id": "dtmi:com:cdl:errorT6RelSrc;2",
+			"target": "dtmi:com:cdl:CancelPrinting;2",
+			"maxMultiplicity": 1,
+			"minMultiplicity": 0,
+			"writable": false,
+			"properties": [
+			],
+			"name": "src"
+			},
+			{
+			"@type": "Relationship",
+			"displayName": "trg",
+			"@id": "dtmi:com:cdl:errorT6RelTrg;2",
+			"target": "dtmi:com:cdl:ErrorS;2",
+			"maxMultiplicity": 1,
+			"minMultiplicity": 0,
+			"writable": false,
+			"properties": [
+			],
+			"name": "trg"
+			}
+	],
+	"@context": "dtmi:dtdl:context;2"
+}

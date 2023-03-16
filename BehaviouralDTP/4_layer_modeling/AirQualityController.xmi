@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simpleUML:UMLModel
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:simpleUML="http://jku.at/simpleUML"
+    xsi:schemaLocation="http://jku.at/simpleUML /BehaviouralDTP/4_layer_modeling/SimpleUML.ecore">
+  <classes name="Room1">
+    <subClasses
+        name="AirQualityController1"
+        stateMachine="//@statemachines.0">
+      <signals
+          type="send"
+          name="shutdown"/>
+      <signals
+          type="send"
+          name="atTargetAirQuality"/>
+      <signals
+          name="tooLowAirQuality"/>
+      <signals
+          name="initiated"/>
+      <subClasses
+          name="AirQualitySensor1">
+        <attributes
+            name="temperature"
+            dataType="Float"
+            value="0"/>
+      </subClasses>
+    </subClasses>
+  </classes>
+  <statemachines
+      name="AirQualityControllerStateMachine1">
+    <states
+        name="StandBy"
+        isStart="true"/>
+    <states
+        name="InitiateVentilationUnit"/>
+    <states
+        name="Active"/>
+    <states
+        name="Shutdown"/>
+    <transitions
+        source="//@statemachines.0/@states.0"
+        target="//@statemachines.0/@states.1"
+        name="tooLowAirQuality"/>
+    <transitions
+        source="//@statemachines.0/@states.1"
+        target="//@statemachines.0/@states.2"
+        name="initiated"/>
+    <transitions
+        source="//@statemachines.0/@states.2"
+        target="//@statemachines.0/@states.0"
+        name="atTargetAirQuality"/>
+    <transitions
+        source="//@statemachines.0/@states.3"
+        target="//@statemachines.0/@states.0"
+        name="shutdownStandBy"/>
+    <transitions
+        source="//@statemachines.0/@states.3"
+        target="//@statemachines.0/@states.1"
+        name="shutdownInitiateVentilationUnit"/>
+    <transitions
+        source="//@statemachines.0/@states.3"
+        target="//@statemachines.0/@states.2"
+        name="shutdownActive"/>
+  </statemachines>
+</simpleUML:UMLModel>

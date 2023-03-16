@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="airQuality_sshUML_closed" nsURI="airQuality_sshUML_closed" nsPrefix="airQuality_sshUML_closed">
+  <eClassifiers xsi:type="ecore:EClass" name="State" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Transition" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="successor" eType="#//State"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="predecessor" eType="#//State"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Class" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AirQualityController" eSuperTypes="#//Class">
+    <eOperations name="enableVentilation"/>
+    <eOperations name="disableVentilation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="airQualityControllerSM"
+        eType="#//AirQualityControllerStateMachine"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="airqualitysensor" upperBound="-1"
+        eType="#//AirQualitySensor" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StateMachine" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="states" upperBound="-1"
+        eType="#//State" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transitions" upperBound="-1"
+        eType="#//Transition" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UMLModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="classes" upperBound="-1"
+        eType="#//Class" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="statemachines" upperBound="-1"
+        eType="#//StateMachine" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="snapshotmodel" eType="#//SnapshotModel"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AirQualityControllerStateMachine" eSuperTypes="#//StateMachine">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="s1" lowerBound="1" eType="#//StandBy"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="s2" lowerBound="1" eType="#//InitiateVentilationUnit"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="s3" lowerBound="1" eType="#//Active"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="s4" lowerBound="1" eType="#//ShutDown"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t1" lowerBound="1" eType="#//tooLowTemperature"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t2" lowerBound="1" eType="#//initiated"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t3" lowerBound="1" eType="#//atTargetTemperature"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t4" lowerBound="1" eType="#//shutDown2"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t5" lowerBound="1" eType="#//atTargetTemperature"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t6" lowerBound="1" eType="#//shutDown1"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="t7" lowerBound="1" eType="#//shutDown3"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InitiateVentilationUnit">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isActiveTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="False"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//State"
+        changeable="false" unsettable="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="tooLowTemperature">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="src" lowerBound="1" eType="#//StandBy"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//Transition"
+        changeable="false" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="firesTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trg" lowerBound="1" eType="#//InitiateVentilationUnit"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Active">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        changeable="false" defaultValueLiteral="false" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isActiveTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="False"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//State"
+        changeable="false" unsettable="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ShutDown">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isActiveTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="False"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        changeable="false" defaultValueLiteral="false" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//State"
+        changeable="false" unsettable="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StandBy">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isActiveTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="False"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        changeable="false" defaultValueLiteral="true" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//State"
+        changeable="false" unsettable="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AirQualitySensor" eSuperTypes="#//Class">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tempTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Room" eSuperTypes="#//Class">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="airqualitycontroller" upperBound="-1"
+        eType="#//AirQualityController" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="initiated">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//Transition"
+        changeable="false" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="firesTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="src" lowerBound="1" eType="#//InitiateVentilationUnit"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trg" lowerBound="1" eType="#//Active"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="atTargetTemperature">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//Transition"
+        changeable="false" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="firesTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="src" lowerBound="1" eType="#//Active"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trg" lowerBound="1" eType="#//StandBy"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="shutDown1">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//Transition"
+        changeable="false" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="firesTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="src" lowerBound="1" eType="#//Active"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trg" lowerBound="1" eType="#//ShutDown"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="shutDown2">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//Transition"
+        changeable="false" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="firesTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trg" lowerBound="1" eType="#//ShutDown"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="src" lowerBound="1" eType="#//InitiateVentilationUnit"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="shutDown3">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//Transition"
+        changeable="false" unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="firesTELEMETRY" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trg" lowerBound="1" eType="#//ShutDown"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="src" lowerBound="1" eType="#//StandBy"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SnapshotModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="snapsho" upperBound="-1"
+        eType="#//Snapshot" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Snapshot">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timestamp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="next" eType="#//Snapshot"
+        eOpposite="#//Snapshot/prev"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prev" eType="#//Snapshot"
+        eOpposite="#//Snapshot/next"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rooms" upperBound="-1"
+        eType="#//Room"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="airqualitycontrollers"
+        upperBound="-1" eType="#//AirQualityController"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="airqualitysensors" upperBound="-1"
+        eType="#//AirQualitySensor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="airqualitycontrollerstatemachine"
+        upperBound="-1" eType="#//AirQualityControllerStateMachine"/>
+  </eClassifiers>
+</ecore:EPackage>

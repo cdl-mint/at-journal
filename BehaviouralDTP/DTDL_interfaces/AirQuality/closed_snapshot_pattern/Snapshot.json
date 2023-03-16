@@ -1,0 +1,56 @@
+{
+	"@type": "Interface",
+	"displayName": "Snapshot",
+	"@id": "dtmi:com:cdl:Snapshot;2",
+	"contents":[
+			{
+			"@type": "Relationship",
+			"displayName": "airQualityControllers",
+			"@id": "dtmi:com:cdl:snapAirQualityController;2",
+			"target": "dtmi:com:cdl:AirQualityController;2",
+			"maxMultiplicity": 10,
+			"minMultiplicity": 0,
+			"writable": false,
+			"properties": [
+			],
+			"name": "airQualityControllers"
+			},
+			{
+			"@type": "Relationship",
+			"displayName": "airQualitySensors",
+			"@id": "dtmi:com:cdl:snapAirQualitySensors;2",
+			"target": "dtmi:com:cdl:AirQualitySensor;2",
+			"maxMultiplicity": 10,
+			"minMultiplicity": 0,
+			"writable": false,
+			"properties": [
+			],
+			"name": "airQualitySensors"
+			},
+			{
+			"@type": "Relationship",
+			"displayName": "rooms",
+			"@id": "dtmi:com:cdl:snapRooms;2",
+			"target": "dtmi:com:cdl:Room;2",
+			"maxMultiplicity": 10,
+			"minMultiplicity": 0,
+			"writable": false,
+			"properties": [
+			],
+			"name": "rooms"
+			},
+			{
+			"@type": "Relationship",
+			"displayName": "airQualityControllerStateMachines",
+			"@id": "dtmi:com:cdl:snapAirQualityControllerStateMachines;2",
+			"target": "dtmi:com:cdl:PrinterStateMachine;2",
+			"maxMultiplicity": 10,
+			"minMultiplicity": 0,
+			"writable": false,
+			"properties": [
+			],
+			"name": "airQualityControllerStateMachines"
+			}
+	],
+	"@context": "dtmi:dtdl:context;2"
+}

@@ -1,0 +1,36 @@
+{
+	"@type": "Interface",
+	"displayName": "InitiateVentilationUnit",
+	"@id": "dtmi:com:cdl:InitiateVentilationUnit;2",
+	"contents":[
+			{
+			"@type": "Relationship",
+			"displayName": "type",
+			"@id": "dtmi:com:cdl:initiateVentilationUnitRelType;2",
+			"target": "dtmi:com:cdl:State;2",
+			"maxMultiplicity": 1,
+			"minMultiplicity": 0,
+			"writable": false,
+			"properties": [
+			],
+			"name": "type"
+			},
+			{
+			"@type": [
+				"Telemetry"
+			],
+			"schema": "boolean",
+			"displayName": "isActive",
+			"name": "isActive"
+			},
+			{
+			"@type": [
+				"Property"
+			],
+			"schema": "boolean",
+			"displayName": "isStart",
+			"name": "isStart"
+			}
+	],
+	"@context": "dtmi:dtdl:context;2"
+}

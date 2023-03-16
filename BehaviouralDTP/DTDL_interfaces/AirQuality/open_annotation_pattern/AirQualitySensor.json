@@ -1,0 +1,18 @@
+{
+	"@type": "Interface",
+	"displayName": "AirQualitySensor",
+	"@id": "dtmi:com:cdl:AirQualitySensor;2",
+	"contents":[
+			{
+			"@type": [
+				"Telemetry",
+				"Temperature"
+			],
+			"schema": "float",
+			"displayName": "temperature",
+			"unit": "degreeCelsius",
+			"name": "temperature"
+			}
+	],
+	"@context": "dtmi:dtdl:context;2"
+}

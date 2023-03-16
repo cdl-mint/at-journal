@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DTML:DigitalTwinEnvironment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DTML="http://www.example.org/DTML" name="closedBehavior.aml">
+  <types displayName="Class">
+    <id domain="com" identifier="cdl:Class" version="2"/>
+    <contents xsi:type="DTML:Relationship" displayName="StateMachine" writable="true" maxMultiplicity="1" target="//@types.4" name="stateMachine">
+      <id domain="com" identifier="cdl:relStateMachine" version="2"/>
+    </contents>
+  </types>
+  <types displayName="Room" extends="//@types.0">
+    <id domain="com" identifier="cdl:Room" version="2"/>
+  </types>
+  <types displayName="AirQualityController" extends="//@types.0">
+    <id domain="com" identifier="cdl:AirQualityController" version="2"/>
+    <contents xsi:type="DTML:Command" displayName="enableVentilation" name="enableVentilation"/>
+    <contents xsi:type="DTML:Command" displayName="disableVentilation" name="disableVentilation"/>
+  </types>
+  <types displayName="AirQualitySensor" extends="//@types.0">
+    <id domain="com" identifier="cdl:AirQualitySensor" version="2"/>
+    <contents xsi:type="DTML:Telemetry" displayName="temperature" type="Temperature" name="temperature" schema="float" unit="degreeCelsius"/>
+  </types>
+  <types displayName="StateMachine">
+    <id domain="com" identifier="cdl:StateMachine" version="2"/>
+    <contents xsi:type="DTML:Relationship" displayName="state" maxMultiplicity="50" target="//@types.5" name="state">
+      <id domain="com" identifier="cdl:relState" version="2"/>
+    </contents>
+    <contents xsi:type="DTML:Relationship" displayName="transition" maxMultiplicity="50" target="//@types.6" name="transition">
+      <id domain="com" identifier="cdl:relTransition" version="2"/>
+    </contents>
+  </types>
+  <types displayName="State">
+    <id domain="com" identifier="cdl:State" version="2"/>
+    <contents xsi:type="DTML:Telemetry" displayName="isActive" name="isActive"/>
+    <contents xsi:type="DTML:Property" displayName="isStart" name="isStart"/>
+  </types>
+  <types displayName="Transition">
+    <id domain="com" identifier="cdl:Transition" version="2"/>
+    <contents xsi:type="DTML:Telemetry" displayName="fires" name="fires"/>
+    <contents xsi:type="DTML:Relationship" displayName="src" writable="true" maxMultiplicity="1" target="//@types.5" name="src">
+      <id domain="com" identifier="cdl:source" version="2"/>
+    </contents>
+    <contents xsi:type="DTML:Relationship" displayName="trg" writable="true" maxMultiplicity="1" target="//@types.5" name="trg">
+      <id domain="com" identifier="cdl:target" version="2"/>
+    </contents>
+  </types>
+  <types displayName="Snapshot">
+    <id domain="com" identifier="cdl:Snapshot" version="2"/>
+    <contents xsi:type="DTML:Relationship" displayName="classes" maxMultiplicity="10" target="//@types.0" name="classes">
+      <id identifier="cdl:snapClasses" domain="com" version="2"/>
+    </contents>
+    <contents xsi:type="DTML:Relationship" displayName="stateMachines" maxMultiplicity="10" target="//@types.4" name="stateMachines">
+      <id identifier="cdl:snapStateMachines" domain="com" version="2"/>
+    </contents>
+  </types>
+</DTML:DigitalTwinEnvironment>

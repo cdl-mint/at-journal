@@ -1,0 +1,32 @@
+{
+	"@type": "Interface",
+	"displayName": "StateMachine",
+	"@id": "dtmi:com:cdl:StateMachine;2",
+	"contents":[
+			{
+			"@type": "Relationship",
+			"displayName": "state",
+			"@id": "dtmi:com:cdl:relState;2",
+			"target": "dtmi:com:cdl:PrinterStateMachine;2",
+			"maxMultiplicity": 50,
+			"minMultiplicity": 0,
+			"writable": false,
+			"properties": [
+			],
+			"name": "state"
+			},
+			{
+			"@type": "Relationship",
+			"displayName": "transition",
+			"@id": "dtmi:com:cdl:relTransition;2",
+			"target": "dtmi:com:cdl:State;2",
+			"maxMultiplicity": 50,
+			"minMultiplicity": 0,
+			"writable": false,
+			"properties": [
+			],
+			"name": "transition"
+			}
+	],
+	"@context": "dtmi:dtdl:context;2"
+}

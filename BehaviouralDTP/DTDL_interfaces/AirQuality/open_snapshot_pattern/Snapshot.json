@@ -1,0 +1,32 @@
+{
+	"@type": "Interface",
+	"displayName": "Snapshot",
+	"@id": "dtmi:com:cdl:Snapshot;2",
+	"contents":[
+			{
+			"@type": "Relationship",
+			"displayName": "classes",
+			"@id": "dtmi:com:cdl:snapClasses;2",
+			"target": "dtmi:com:cdl:Class;2",
+			"maxMultiplicity": 10,
+			"minMultiplicity": 0,
+			"writable": false,
+			"properties": [
+			],
+			"name": "classes"
+			},
+			{
+			"@type": "Relationship",
+			"displayName": "stateMachines",
+			"@id": "dtmi:com:cdl:snapStateMachines;2",
+			"target": "dtmi:com:cdl:StateMachine;2",
+			"maxMultiplicity": 10,
+			"minMultiplicity": 0,
+			"writable": false,
+			"properties": [
+			],
+			"name": "stateMachines"
+			}
+	],
+	"@context": "dtmi:dtdl:context;2"
+}

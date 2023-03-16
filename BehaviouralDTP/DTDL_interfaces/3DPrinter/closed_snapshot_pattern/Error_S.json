@@ -1,0 +1,36 @@
+{
+	"@type": "Interface",
+	"displayName": "Error_S",
+	"@id": "dtmi:com:cdl:ErrorS;2",
+	"contents":[
+			{
+			"@type": "Relationship",
+			"displayName": "type",
+			"@id": "dtmi:com:cdl:errorSRelType;2",
+			"target": "dtmi:com:cdl:State;2",
+			"maxMultiplicity": 1,
+			"minMultiplicity": 0,
+			"writable": false,
+			"properties": [
+			],
+			"name": "type"
+			},
+			{
+			"@type": [
+				"Telemetry"
+			],
+			"schema": "boolean",
+			"displayName": "isActive",
+			"name": "isActive"
+			},
+			{
+			"@type": [
+				"Property"
+			],
+			"schema": "boolean",
+			"displayName": "isStart",
+			"name": "isStart"
+			}
+	],
+	"@context": "dtmi:dtdl:context;2"
+}

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DTML:DigitalTwinEnvironment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DTML="http://www.example.org/DTML" name="closedBehavior.aml">
+  <types displayName="Class">
+    <id domain="com" identifier="cdl:Class" version="2"/>
+  </types>
+  <types displayName="Room" extends="//@types.0">
+    <id domain="com" identifier="cdl:Room" version="2"/>
+  </types>
+  <types displayName="AirQualityController" extends="//@types.0">
+    <id domain="com" identifier="cdl:AirQualityController" version="2"/>
+    <contents xsi:type="DTML:Command" displayName="enableVentilation" name="enableVentilation"/>
+    <contents xsi:type="DTML:Command" displayName="disableVentilation" name="disableVentilation"/>
+  </types>
+  <types displayName="AirQualitySensor" extends="//@types.0">
+    <id domain="com" identifier="cdl:AirQualitySensor" version="2"/>
+    <contents xsi:type="DTML:Telemetry" displayName="temperature" type="Temperature" name="temperature" schema="float"/>
+  </types>
+  <types displayName="StateMachine">
+    <id domain="com" identifier="cdl:StateMachine" version="2"/>
+    <contents xsi:type="DTML:Relationship" displayName="state" maxMultiplicity="50" target="//@types.5" name="state">
+      <id domain="com" identifier="cdl:relState" version="2"/>
+    </contents>
+    <contents xsi:type="DTML:Relationship" displayName="transition" maxMultiplicity="50" target="//@types.6" name="transition">
+      <id domain="com" identifier="cdl:relTransition" version="2"/>
+    </contents>
+  </types>
+  <types displayName="AirQualityControllerStateMachine" extends="//@types.3">
+    <id domain="com" identifier="cdl:PrinterStateMachine" version="2"/>
+    <contents xsi:type="DTML:Relationship" displayName="type" maxMultiplicity="1" target="//@types.3" name="type">
+      <id domain="com" identifier="cdl:printerStateMachineRelType" version="2"/>
+    </contents>
+    <contents xsi:type="DTML:Relationship" displayName="standBy" maxMultiplicity="1" target="//@types.7" name="standBy">
+      <id domain="com" identifier="cdl:printerStateMachineRelStandBy" version="2"/>
+    </contents>
+    <contents xsi:type="DTML:Relationship" displayName="connected" maxMultiplicity="1" target="//@types.9" name="connected">
+      <id domain="com" identifier="cdl:printerStateMachineRelConnected" version="2"/>
+    </contents>
+    <contents xsi:type="DTML:Relationship" displayName="operational" maxMultiplicity="1" target="//@types.11" name="operational">
+      <id domain="com" identifier="cdl:printerStateMachineRelOperational" version="2"/>
+    </contents>
+    <contents xsi:type="DTML:Relationship" displayName="connect" maxMultiplicity="1" target="//@types.8" name="connect">
+      <id domain="com" identifier="cdl:printerStateMachineRelConnect" version="2"/>
+    </contents>
+    <contents xsi:type="DTML:Relationship" displayName="sendCADFile" maxMultiplicity="1" target="//@types.10" name="sendCADFile">
+      <id domain="com" identifier="cdl:printerStateMachineRelSendCADFile" version="2"/>
+    </contents>
+    <contents xsi:type="DTML:Relationship" displayName="print" maxMultiplicity="1" target="//@types.12" name="print">
+      <id domain="com" identifier="cdl:printerStateMachineRelPrint" version="2"/>
+    </contents>
+    <contents xsi:type="DTML:Relationship" displayName="printing" maxMultiplicity="1" target="//@types.13" name="printing">
+      <id domain="com" identifier="cdl:printerStateMachineRelPrinting" version="2"/>
+    </contents>
+  </types>
+  <types displayName="State">
+    <id domain="com" identifier="cdl:State" version="2"/>
+    <contents xsi:type="DTML:Telemetry" displayName="isActive" name="isActive"/>
+    <contents xsi:type="DTML:Property" displayName="isStart" name="isStart"/>
+  </types>
+  <types displayName="Transition">
+    <id domain="com" identifier="cdl:Transition" version="2"/>
+    <contents xsi:type="DTML:Telemetry" displayName="fires" name="fires"/>
+    <contents xsi:type="DTML:Relationship" displayName="src" minMultiplicity="0" maxMultiplicity="1" target="//@types.6" name="src">
+      <id domain="com" identifier="cdl:transitionSrc" version="2"/>
+    </contents>
+    <contents xsi:type="DTML:Relationship" displayName="trg" minMultiplicity="0" maxMultiplicity="1" target="//@types.6" name="trg">
+      <id domain="com" identifier="cdl:transitionTrg" version="2"/>
+    </contents>
+  </types>
+  <types displayName="StandBy">
+    <id domain="com" identifier="cdl:StateStandBy" version="2"/>
+    <contents xsi:type="DTML:Relationship" displayName="type" minMultiplicity="0" maxMultiplicity="1" target="//@types.5" name="type">
+      <id domain="com" identifier="cdl:standByRelType" version="2"/>
+    </contents>
+    <contents xsi:type="DTML:Telemetry" displayName="isActive" name="isActive"/>
+    <contents xsi:type="DTML:Property" displayName="isStart" name="isStart"/>
+  </types>
+  <types displayName="tooLowAirQuality">
+    <id domain="com" identifier="cdl:Connect" version="2"/>
+    <contents xsi:type="DTML:Telemetry" displayName="fires" name="fires"/>
+    <contents xsi:type="DTML:Relationship" displayName="type" minMultiplicity="0" maxMultiplicity="1" target="//@types.6" name="type">
+      <id domain="com" identifier="cdl:connectRelType" version="2"/>
+    </contents>
+    <contents xsi:type="DTML:Relationship" displayName="src" maxMultiplicity="1" target="//@types.8" name="src">
+      <id domain="com" identifier="cdl:tooLowAirQualityRelSrc" version="2"/>
+    </contents>
+    <contents xsi:type="DTML:Relationship" displayName="trg" maxMultiplicity="1" target="//@types.10" name="trg">
+      <id domain="com" identifier="cdl:tooLowAirQualityRelTrg" version="2"/>
+    </contents>
+  </types>
+  <types displayName="InitiateVentilationUnit">
+    <id domain="com" identifier="cdl:InitiateVentilationUnit" version="2"/>
+    <contents xsi:type="DTML:Relationship" displayName="type" minMultiplicity="0" maxMultiplicity="1" target="//@types.6" name="type">
+      <id domain="com" identifier="cdl:initiateVentilationUnitRelType" version="2"/>
+    </contents>
+    <contents xsi:type="DTML:Telemetry" displayName="isActive" name="isActive"/>
+    <contents xsi:type="DTML:Property" displayName="isStart" name="isStart"/>
+  </types>
+  <types displayName="initiated">
+    <id domain="com" identifier="cdl:initiated" version="2"/>
+    <contents xsi:type="DTML:Telemetry" displayName="fires" name="fires"/>
+    <contents xsi:type="DTML:Relationship" displayName="type" minMultiplicity="0" maxMultiplicity="1" target="//@types.7" name="type">
+      <id domain="com" identifier="cdl:initiatedRelType" version="2"/>
+    </contents>
+    <contents xsi:type="DTML:Relationship" displayName="src" maxMultiplicity="1" target="//@types.10" name="src">
+      <id domain="com" identifier="cdl:initiatedRelSrc" version="2"/>
+    </contents>
+    <contents xsi:type="DTML:Relationship" displayName="trg" maxMultiplicity="1" target="//@types.12" name="trg">
+      <id domain="com" identifier="cdl:initiatedRelTrg" version="2"/>
+    </contents>
+  </types>
+  <types displayName="Active">
+    <id domain="com" identifier="cdl:Active" version="2"/>
+    <contents xsi:type="DTML:Relationship" displayName="type" minMultiplicity="0" maxMultiplicity="1" target="//@types.6" name="type">
+      <id domain="com" identifier="cdl:activeRelType" version="2"/>
+    </contents>
+    <contents xsi:type="DTML:Telemetry" displayName="isActive" name="isActive"/>
+    <contents xsi:type="DTML:Property" displayName="isStart" name="isStart"/>
+  </types>
+  <types displayName="atTargetAirQuality">
+    <id domain="com" identifier="cdl:AtTargetAirQuality" version="2"/>
+    <contents xsi:type="DTML:Telemetry" displayName="fires" name="fires"/>
+    <contents xsi:type="DTML:Relationship" displayName="type" minMultiplicity="0" maxMultiplicity="1" target="//@types.7" name="type">
+      <id domain="com" identifier="cdl:atTargetAirQualityRelType" version="2"/>
+    </contents>
+    <contents xsi:type="DTML:Relationship" displayName="src" maxMultiplicity="1" target="//@types.12" name="src">
+      <id domain="com" identifier="cdl:atTargetAirQualityRelSrc" version="2"/>
+    </contents>
+    <contents xsi:type="DTML:Relationship" displayName="trg" maxMultiplicity="1" target="//@types.8" name="trg">
+      <id domain="com" identifier="cdl:atTargetAirQualityRelTrg" version="2"/>
+    </contents>
+  </types>
+  <types displayName="Shutdown_S">
+    <id domain="com" identifier="cdl:Printing" version="2"/>
+    <contents xsi:type="DTML:Relationship" displayName="type" maxMultiplicity="1" target="//@types.6" name="type">
+      <id domain="com" identifier="cdl:shutdownStateRelType" version="2"/>
+    </contents>
+    <contents xsi:type="DTML:Telemetry" displayName="isActive" name="isActive"/>
+    <contents xsi:type="DTML:Property" displayName="isStart" name="isStart"/>
+  </types>
+  <types displayName="Shutdown_T1">
+    <id domain="com" identifier="cdl:ShutdownT1" version="2"/>
+    <contents xsi:type="DTML:Telemetry" displayName="fires" name="fires"/>
+    <contents xsi:type="DTML:Relationship" displayName="type" minMultiplicity="0" maxMultiplicity="1" target="//@types.7" name="type">
+      <id domain="com" identifier="cdl:shutdownT1RelType" version="2"/>
+    </contents>
+    <contents xsi:type="DTML:Relationship" displayName="src" maxMultiplicity="1" target="//@types.8" name="src">
+      <id domain="com" identifier="cdl:shutdownT1RelSrc" version="2"/>
+    </contents>
+    <contents xsi:type="DTML:Relationship" displayName="trg" maxMultiplicity="1" target="//@types.14" name="trg">
+      <id domain="com" identifier="cdl:shutdownT1RelTrg" version="2"/>
+    </contents>
+  </types>
+  <types displayName="Shutdown_T2">
+    <id domain="com" identifier="cdl:ShutdownT2" version="2"/>
+    <contents xsi:type="DTML:Telemetry" displayName="fires" name="fires"/>
+    <contents xsi:type="DTML:Relationship" displayName="type" minMultiplicity="0" maxMultiplicity="1" target="//@types.7" name="type">
+      <id domain="com" identifier="cdl:shutdownT2RelType" version="2"/>
+    </contents>
+    <contents xsi:type="DTML:Relationship" displayName="src" maxMultiplicity="1" target="//@types.10" name="src">
+      <id domain="com" identifier="cdl:shutdownT2RelSrc" version="2"/>
+    </contents>
+    <contents xsi:type="DTML:Relationship" displayName="trg" maxMultiplicity="1" target="//@types.14" name="trg">
+      <id domain="com" identifier="cdl:shutdownT2RelTrg" version="2"/>
+    </contents>
+  </types>
+  <types displayName="Shutdown_T3">
+    <id domain="com" identifier="cdl:ShutdownT3" version="2"/>
+    <contents xsi:type="DTML:Telemetry" displayName="fires" name="fires"/>
+    <contents xsi:type="DTML:Relationship" displayName="type" minMultiplicity="0" maxMultiplicity="1" target="//@types.7" name="type">
+      <id domain="com" identifier="cdl:shutdownT3RelType" version="2"/>
+    </contents>
+    <contents xsi:type="DTML:Relationship" displayName="src" maxMultiplicity="1" target="//@types.12" name="src">
+      <id domain="com" identifier="cdl:shutdownT3RelSrc" version="2"/>
+    </contents>
+    <contents xsi:type="DTML:Relationship" displayName="trg" maxMultiplicity="1" target="//@types.17" name="trg">
+      <id domain="com" identifier="cdl:shutdownT3RelTrg" version="2"/>
+    </contents>
+  </types>
+</DTML:DigitalTwinEnvironment>
